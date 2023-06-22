@@ -3,9 +3,9 @@
 # go-polar
 [![license](https://img.shields.io/github/license/Minestom/MinestomDataGenerator.svg)](LICENSE)
 
-Go implementation of the [Polar world format](https://github.com/hollow-cube/polar). Polar is a world 
-format designed for simpler and smaller handling of small worlds, particularly for user generated 
-content where size matters.
+Go implementation of [Polar](https://github.com/hollow-cube/polar). Polar is a world format designed 
+for simpler and smaller handling of small worlds, particularly for user generated content where size 
+matters.
 
 Polar generally should not be used for large worlds, since it stores worlds in a single file and does 
 not allow random access of chunks (the entire world must be loaded to read chunks). As a general rule 
