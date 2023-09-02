@@ -158,12 +158,21 @@ func writeSection(b *buffer, section *Section) (err error) {
 	}
 
 	// Light data
-	if section.BlockLight != nil {
+	hasBlockLight := section.BlockLight != nil
+	if err = b.WriteBool(hasBlockLight); err != nil {
+		return err
+	}
+	if hasBlockLight {
 		if err = b.WriteBytes(section.BlockLight); err != nil {
 			return err
 		}
 	}
-	if section.SkyLight != nil {
+
+	hasSkyLight := section.SkyLight != nil
+	if err = b.WriteBool(hasSkyLight); err != nil {
+		return err
+	}
+	if hasSkyLight {
 		if err = b.WriteBytes(section.SkyLight); err != nil {
 			return err
 		}
