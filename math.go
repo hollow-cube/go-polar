@@ -11,7 +11,7 @@ func (c ChunkIndex) Z() int {
 }
 
 func ChunkIndexFromXZ(x, z int) ChunkIndex {
-	return ChunkIndex((int64(x) << 32) | int64(z))
+	return ChunkIndex((int64(x) << 32) | int64(z&0xFFFFFFFF))
 }
 
 func ChunkPosToXYZ(chunkPos int32) (int, int, int) {

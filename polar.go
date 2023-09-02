@@ -30,7 +30,9 @@ func (w *World) GetChunk(x, z int) *Chunk {
 	if w.chunks == nil {
 		return nil
 	}
-	return w.chunks[ChunkIndexFromXZ(x, z)]
+	idx := ChunkIndexFromXZ(x, z)
+	println(idx)
+	return w.chunks[idx]
 }
 
 func (w *World) SetChunk(chunk *Chunk) {
