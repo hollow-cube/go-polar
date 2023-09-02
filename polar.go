@@ -39,7 +39,7 @@ func (w *World) SetChunk(chunk *Chunk) {
 	}
 
 	idx := ChunkIndexFromXZ(int(chunk.X), int(chunk.Z))
-	if _, ok := w.chunks[]; ok {
+	if _, ok := w.chunks[idx]; ok {
 		panic(fmt.Sprintf("chunk %d, %d already exists", chunk.X, chunk.Z))
 	}
 	w.chunks[idx] = chunk
