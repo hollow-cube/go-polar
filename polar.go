@@ -25,10 +25,16 @@ func (w *World) SectionCount() int {
 }
 
 func (w *World) GetChunk(x, z int) *Chunk {
+	if w.chunks == nil {
+		return nil
+	}
 	return w.chunks[ChunkIndexFromXZ(x, z)]
 }
 
 func (w *World) SetChunk(chunk *Chunk) {
+	if w.chunks == nil {
+		w.chunks = make(map[ChunkIndex]*Chunk)
+	}
 	w.chunks[ChunkIndexFromXZ(int(chunk.X), int(chunk.Z))] = chunk
 }
 
