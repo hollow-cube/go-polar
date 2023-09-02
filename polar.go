@@ -1,5 +1,7 @@
 package polar
 
+import "fmt"
+
 const MagicNumber = 0x506F6C72 // `Polr`
 
 const LatestVersion int16 = 3
@@ -35,7 +37,12 @@ func (w *World) SetChunk(chunk *Chunk) {
 	if w.chunks == nil {
 		w.chunks = make(map[ChunkIndex]*Chunk)
 	}
-	w.chunks[ChunkIndexFromXZ(int(chunk.X), int(chunk.Z))] = chunk
+
+	idx := ChunkIndexFromXZ(int(chunk.X), int(chunk.Z))
+	if _, ok := w.chunks[]; ok {
+		panic(fmt.Sprintf("chunk %d, %d already exists", chunk.X, chunk.Z))
+	}
+	w.chunks[idx] = chunk
 }
 
 type Chunk struct {
