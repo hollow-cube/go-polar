@@ -24,6 +24,14 @@ func (w *World) SectionCount() int {
 	return int(w.MaxSection - w.MinSection + 1)
 }
 
+func (w *World) GetChunk(x, z int) *Chunk {
+	return w.chunks[ChunkIndexFromXZ(x, z)]
+}
+
+func (w *World) SetChunk(chunk *Chunk) {
+	w.chunks[ChunkIndexFromXZ(int(chunk.X), int(chunk.Z))] = chunk
+}
+
 type Chunk struct {
 	X int32
 	Z int32
