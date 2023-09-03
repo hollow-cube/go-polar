@@ -31,7 +31,6 @@ func (w *World) GetChunk(x, z int) *Chunk {
 		return nil
 	}
 	idx := ChunkIndexFromXZ(x, z)
-	println(idx)
 	return w.chunks[idx]
 }
 
